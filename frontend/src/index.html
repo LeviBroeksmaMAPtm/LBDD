@@ -9,7 +9,7 @@
   <meta name="description" content="Tailwind CSS - MAPtm template">
   <meta name="author" content="by MAPtm">
 
-  <title>Tailwind CSS - MAPtm template</title>
+  <title>LBDD | Levi Broeksma Design & Development</title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -50,62 +50,33 @@
 
 </head>
 
-<body data-app="home">
-
-  <div class="flex bg-gray-200 h-screen">
-
-    <div class="relative w-20">
-      @@include('./_imports/alpine-sidebar.html')
-    </div>
-
-    <div x-data="{ tab: 'users' }" class="flex-1 flex flex-col">
-      <header class="h-20 px-6 py-2 bg-cool-gray-100">
-        <div>
-          <div class="border-b border-gray-200">
-            <nav class="-mb-px flex">
-              <a :class="
-                  tab === 'users'
-                  ? ' border-blue-500 text-blue-600 focus:text-blue-800 focus:border-blue-700'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300'"
-                @click="tab = 'users'" href="#"
-                class="w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm leading-5 focus:outline-none"
-                aria-current="page">
-                Gebruikers
-              </a>
-              <a :class="
-                  tab === 'projects'
-                  ? ' border-blue-500 text-blue-600 focus:text-blue-800 focus:border-blue-700'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300'"
-                @click="tab = 'projects'" href="#"
-                class="w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm leading-5">
-                Projecten
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <main class="flex-1 px-6">
-        Hello World!
-      </main>
-
-      <!-- <footer class="h-20 flex items-center px-6 bg-white">Footer</footer> -->
-      <footer>
-        @@include('./_imports/alpine-footer.html')
-      </footer>
+<body data-app="home" class="relative min-h-screen">
+  <div x-data="{show: false}">
+    <header class="flex justify-between bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 text-blue-400 p-4">
+      <div class="border border-blue-400 px-3 py-1">logo</div>
+      <div @click="show = !show" class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </div>
+    </header>
+    <!-- Mobile menu drop down-->
+    <div class="bg-gray-800 text-white" x-show="show" @click.away="show = false">
+      <nav>
+        <ul>
+          <li class="border-b border-t border-gray-50 px-4 py-2 hover:bg-gray-600"><a href="#" class="hover:text-gray-100">Home</a></li>
+          <li class="border-b border-gray-50 px-4 py-2 hover:bg-gray-600"><a href="#" class="hover:text-gray-100">Prices</a></li>
+          <li class="border-b border-gray-50 px-4 py-2 hover:bg-gray-600"><a href="#" class="hover:text-gray-100">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 
-  <!-- Template Header -->
-  <!-- @@include('./_imports/header_template.html') -->
+  <!-- copyright banner -->
+  <div class="absolute bottom-0 w-full text-center bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 py-1">
+    <span class="text-xs text-blue-400">All rights reserved | © 2021 LB Design & Development</span>
+  </div>
 
-  <!-- Template Sidebar -->
-  <!-- @@include('./_imports/sidebar_template.html') -->
-
-  <!-- Alpine.js dependencies -->
-  <script src="./_imports/alpine_func_footer.min.js"></script>
-  <!-- <script src="./alpine_func_users.min.js"></script> -->
-  <!-- <script src="./alpine_func_projects.min.js"></script> -->
 </body>
 
 </html>
